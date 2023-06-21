@@ -6,6 +6,7 @@ struct Node{
     Node *next;
 };
 
+
 Node *head;
 void insert(int val){
     Node *curr = new Node();
@@ -37,12 +38,16 @@ void printList()
     cout << "\n";
 }
 
+// Forward iterating in linkedlist using Recursion
+
 void forward(Node *curr){
     if(curr == NULL) return;
 
     cout<<curr->data<<" ";
     forward(curr->next);
 }
+
+// Backward iterating in linkedlist using Recursion
 
 void backward(Node *curr){
     if(curr == NULL) return;
@@ -51,6 +56,8 @@ void backward(Node *curr){
     backward(curr->next);
     cout<<curr->data<<" ";
 }
+
+//  Reverse a linkedlist by Recursion 
 
 void reverse(Node *curr){
     if(curr == NULL) return;
@@ -74,8 +81,10 @@ int main(){
     insert(4);
 
     printList();
+
     forward(head);
     backward(head);
+    
     // reverse(head);
     // printList();
     return 0;
