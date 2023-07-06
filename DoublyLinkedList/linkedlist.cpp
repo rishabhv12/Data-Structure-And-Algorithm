@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//  Structure of Node
 struct Node{
     int data;
     Node *next = NULL;
@@ -9,6 +10,8 @@ struct Node{
 
 Node *head = NULL;
 
+
+//  Print the linkedlist
 void printList(){
     Node *temp = head;
     while(temp){
@@ -18,6 +21,8 @@ void printList(){
     cout<<endl;
 }
 
+
+// Insert at begining of linkedlist
 void insertHead(int val){
     Node *temp = new Node();
     temp->data = val;
@@ -33,6 +38,8 @@ void insertHead(int val){
 
 }
 
+
+// Insert at the end of linkedlist
 void insertTail(int val){
     Node *temp = new Node();
     temp->data = val;
@@ -50,6 +57,44 @@ void insertTail(int val){
 }
 
 
+// Insert at given position of linkedlist
+void insertPos(int val, int pos){
+    Node *temp = new Node();
+    temp->data = val;
+
+    if(pos == 1) {
+        insertHead(val);
+        return;
+    }
+    Node *curr = head;
+    for(int i=1;i<pos-1;i++){
+        curr = curr->next;
+    }
+
+    temp->next = curr->next;
+    curr->next->prev = temp;
+    curr->next = temp;
+
+}
+
+
+// Delete at given position in linkedlist
+void deletePos(int pos){
+    if(pos == 1){
+        head ->next->prev = NULL;
+        head = head->next;
+        return;
+    }
+    Node *curr = head;
+    for(int i=1;i<pos-1;i++){
+        curr = curr->next;
+    }
+
+    curr ->next = curr->next->next;
+    curr->next->prev = curr;
+
+}
+
 
 int main(){
     
@@ -60,6 +105,12 @@ int main(){
 
     insertTail(7);
     insertTail(9);
+    printList();
+
+    insertPos(11, 3);
+    printList();
+
+    deletePos(3);
     printList();
     return 0;
 }
