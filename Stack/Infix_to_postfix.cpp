@@ -16,7 +16,7 @@ bool comp(char a, char b){
 }
 
 // Convert infix expression to postfix
-string infixToPrefix(string s){
+string infixToPostfix(string s){
     stack<char> st;
     string ans = "";        
 
@@ -51,7 +51,7 @@ string infixToPrefix(string s){
 int main(){
     string s;
     cin>>s;
-    string res = infixToPrefix(s);
+    string res = infixToPostfix(s);
     cout<<res<<endl;
 
     return 0;
