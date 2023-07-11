@@ -38,9 +38,14 @@ bstNode* InsertTree(bstNode *root, int val){
 //  Height of tree = height of the root
 
 int Height(bstNode *root){
+    // If root is not present
     if(root == NULL) return -1;
 
+
+    // Max height of left leaf
     int left = Height(root->left);
+
+    // Max height of right leaf
     int right = Height(root->right);
 
     return max(left,right)+1;
