@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+
 // Structure of Binary Search Tree
 struct bstNode{
     int data;
@@ -8,27 +10,31 @@ struct bstNode{
     bstNode *right = NULL;
 };
 
+
+
 // Insert value in bst
 bstNode* InsertTree(bstNode *root, int val){
     bstNode *temp = new bstNode();
     temp->data = val;
 
-//  If tree in empty
+    //  If tree in empty
     if(root == NULL){
         root = temp;
     }
 
-//  If value is less then or equal to root then insert to left of the tree
+    //  If value is less then or equal to root then insert to left of the tree
     else if(val <= root->data){
         root->left = InsertTree(root->left, val);
     }
 
-//  If value is greater then root then insert to right of the tree    
+    //  If value is greater then root then insert to right of the tree    
     else {
         root->right = InsertTree(root->right, val);
     }
     return root;
 }
+
+
 
 //  Search in BST
 bool Search(bstNode *root, int key){
