@@ -50,13 +50,13 @@ bool isBst(bstNode *root, int minVal, int maxVal){
 int main(){
     bstNode *root = NULL;
     root = InsertTree(root,8);
-    root = InsertTree(root,2);
-    root = InsertTree(root,9);
     root = InsertTree(root,6);
+    root = InsertTree(root,10);
     root = InsertTree(root,5);
-    root = InsertTree(root,1);
     root = InsertTree(root,7);
+    root = InsertTree(root,9);
+    root = InsertTree(root,12);
 
-    cout<<isBst(root, INT_MIN, INT_MAX)<<endl;
-
+    // cout<<isBst(root, INT_MIN, INT_MAX)<<endl;
+    cout<<(isBst(root, INT_MIN, INT_MAX) ? "YES" : "NO")<<endl;
 }

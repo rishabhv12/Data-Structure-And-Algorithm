@@ -68,6 +68,31 @@ vector<vector<int>> levelOrder(bstNode* root){
     return ans;
 }
 
+vector<vector<int>> levelOrderEff(bstNode* root){
+
+    vector<vector<int>> ans;
+    vector<int> level;
+    queue<bstNode*> q;
+
+    if(root == NULL) return ans;
+
+    q.push(root);
+
+    while(q.size() != 0){
+        int n= q.size();
+        for(int i=0;i<n;i++){
+            bstNode *temp = q.front();
+            q.pop();
+            level.push_back(temp->data);
+            if(temp->left) q.push(temp->left);
+            if(temp->right) q.push(temp->right);
+        }
+
+        ans.push_back(level);
+        level.clear();
+    }
+    return ans;
+}
 
 int main(){
     bstNode *root = NULL;
@@ -79,7 +104,7 @@ int main(){
     root = InsertTree(root,1);
     root = InsertTree(root,7);
 
-    vector<vector<int>> traverse = levelOrder(root);
+    vector<vector<int>> traverse = levelOrderEff(root);
     for(auto i:traverse){
         for(auto j:i) cout<<j<<" ";
         cout<<endl;
