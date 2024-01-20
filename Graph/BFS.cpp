@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
+// Time and space complexity - O(N + E)
 void adjList(vector<pair<int,int>>& edge, unordered_map<int, vector<int>>& adjlist){
 
     for(auto i:edge){
