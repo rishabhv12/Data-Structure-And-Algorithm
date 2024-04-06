@@ -63,19 +63,20 @@ void inorder(bstNode *root){
     if(root == NULL) return;
 
     stack<bstNode*> st;
-    st.push(root);
-
-    while(!st.empty()){
-        bstNode* temp = st.top();
-        while(temp->left){
-            st.push(temp->left);
+    bstNode* temp = root;
+    while(true){
+        if(temp){
+            st.push(temp);
+            temp = temp->left;
         }
-        cout<<st.top()->data<<" ";
-        st.pop();
-        temp = st.top();
-        cout<<temp->data<<" ";
-        st.pop();
-        if(temp->right) st.push(temp->right);
+        else{
+            if(st.empty()) break;
+            temp = st.top();
+            st.pop();
+            cout<<temp->data<<" ";
+            temp = temp->right;
+            
+        }
 
     }
     cout<<endl;
@@ -83,13 +84,9 @@ void inorder(bstNode *root){
 
 
 //  Postorder -->  left tree -> right tree -> root
-void postorder(bstNode *root){
-    if(root == NULL) return;
-
-    postorder(root->left);
-    postorder(root->right);
-    cout<<root->data<<" ";
-}
+// void postorder(bstNode *root){
+    
+// }
 
 int main(){
     bstNode *root = NULL;
